@@ -7,7 +7,7 @@ const albumSchema = new mongoose.Schema({
   coverImage: { type: String, required: true },
   genre: { type: String, required: true },
   description: { type: String, required: true },
-  votes: { type: Number, default: 0 },
+  votes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], // References to User
 });
 
 module.exports = mongoose.model('Album', albumSchema);
